@@ -13,4 +13,4 @@ while True:
 		print(f'User played {roll_count} times')
 		break
 	else:
-		print('Invalid input.')
+		print('Invalid input. Please enter (y/n)!')
