@@ -2,16 +2,20 @@ import random
 
 choices = ('r', 'p', 's')
 
-while True:		
-	user_choice = input("Rock, Paper or Scissors? (r/p/s): ").lower()
-	
-	if user_choice not in choices:
-		print("Invalid choice!")
-		continue
-	computer_choice = random.choice(choices)
+def get_user_choice():
+	while True:		
+		user_choice = input("Rock, Paper or Scissors? (r/p/s): ").lower()
+		if user_choice not in choices:
+			print("Invalid choice!")
+			continue
+		else:
+			return user_choice
+			
+def display_choices(user_choice, computer_choice):
 	print(f"Your choice: {user_choice}")
 	print(f"computer_choice: {computer_choice}")
 	
+def determine_winner(user_choice, computer_choice):
 	if user_choice ==  computer_choice:
 		print("Thats a Tie!!")
 	elif (
@@ -22,10 +26,21 @@ while True:
 		print("You win")
 	else:
 		print("You lose")
+
+def play_game():
+	while True:
+		user_choice = get_user_choice()
+		
+		computer_choice = random.choice(choices)
+		
+		display_choices(user_choice, computer_choice)
+		determine_winner(user_choice, computer_choice)
+		
+		should_continue = input("Play again? (y/n): ")
+		if should_continue == "n":
+			print("Exiting Game")
+			break
+		else:
+			continue
 	
-	should_continue = input("Play again? (y/n): ")
-	if should_continue == "n":
-		print("Exiting Game")
-		break
-	else:
-		continue
+play_game()
