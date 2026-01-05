@@ -1,5 +1,6 @@
 import random
 
+#main game
 roll_count = 0
 while True:
 	launcher = input('\nReady to play? (y/n): ').lower()
